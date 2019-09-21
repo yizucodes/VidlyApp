@@ -1,15 +1,12 @@
 import React from 'react';
 
-const Input = ({ name, label, value, error, onChange }) => {
+const Input = ({ name, label, error, ...rest }) => {
     return (<div className="form-group">
         <label htmlFor={name}>{label}</label>
+
+        {/* Rest paremeter includes other parameters other than name, label, error */}
         <input
-            className="form-control"
-            value={value}
-            onChange={onChange}
-            name={name}
-            id={name}
-            type="text"
+            {...rest} name={name} id={name} className="form-control"
         />
 
         {/* Conditional rendering, render error message if error object is true */}
